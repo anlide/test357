@@ -20,7 +20,6 @@ $inputFile = $argv[1] ?? 'input.txt';
 
 if (!file_exists($inputFile)) {
     $renderOutput->outputError("Input file not found: $inputFile");
-    exit(1);
 }
 
 $input = file_get_contents($inputFile);
@@ -28,6 +27,7 @@ $input = file_get_contents($inputFile);
 try {
     $commissions = $calculator->calculate($input);
     $renderOutput->output($commissions);
+    exit(0);
 } catch (InvalidDataException | InvalidRateException | BinDataException | ExchangeRateException $e) {
     $renderOutput->outputError($e->getMessage());
     exit(1);

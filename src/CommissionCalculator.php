@@ -4,6 +4,8 @@ namespace Test357;
 
 use Test357\BinProvider;
 use Test357\ExchangeRateProvider;
+use Test357\Exceptions\BinDataException;
+use Test357\Exceptions\ExchangeRateException;
 use Test357\Exceptions\InvalidDataException;
 use Test357\Exceptions\InvalidRateException;
 use Test357\Helpers;
@@ -24,6 +26,8 @@ class CommissionCalculator {
      * @return array Calculated commissions.
      * @throws InvalidDataException If the input data is invalid.
      * @throws InvalidRateException If the exchange rate is invalid.
+     * @throws BinDataException If there is an error retrieving the BIN data.
+     * @throws ExchangeRateException If there is an error retrieving the exchange rate.
      */
     public function calculate(string $input): array {
         $commissions = [];

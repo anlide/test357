@@ -3,14 +3,15 @@
 namespace Test357\Tests;
 
 use PHPUnit\Framework\TestCase;
+use Test357\Helpers;
 
 class HelpersTest extends TestCase {
     public function testIsEu() {
         // Assuming you moved the isEu function to a Helpers class
-        $result = \Test357\Helpers::isEu('DE');
+        $result = Helpers::isEu('DE');
         $this->assertTrue($result);
 
-        $result = \Test357\Helpers::isEu('US');
+        $result = Helpers::isEu('US');
         $this->assertFalse($result);
     }
 }
