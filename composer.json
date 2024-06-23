@@ -1,0 +1,19 @@
+{
+  "name": "anlide/test357",
+  "description": "Anlide`s test357 project",
+  "require": {
+    "guzzlehttp/guzzle": "^7.0",
+    "phpunit/phpunit": "^9.0",
+    "php": "^8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Test357\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test357\\Tests\\": "tests/"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "${PORT:-8845}:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+    depends_on:
+      - php
+    networks:
+      test357_net:
+        ipv4_address: 172.28.0.55
+
+  php:
+    build: .
+    volumes:
+      - .:/app
+    networks:
+      test357_net:
+        ipv4_address: 172.28.0.54
+
+networks:
+  test357_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
